@@ -32,51 +32,68 @@ public class Main
     }
 
     public static void main(String[] args) {
-        int down;
+        String down;
 
         double x, y, z;
+
+        boolean ADC = true;
 
         x = getValue("pierwszą");
         y = getValue("drugą");
 
-        System.out.println("1. Dodawanie");
-        System.out.println("2. Odejmowanie");
-        System.out.println("3. Mnożenie");
-        System.out.println("4. Dzielenie");
-
-        System.out.print("Podaj opcję: ");
 
         Scanner in = new Scanner(System.in);
-        down = in.nextInt();
 
-        switch(down)
+        do
         {
-            case 1:
+            System.out.println("0. Wyjście z programu");
+            System.out.println("1. Dodawanie");
+            System.out.println("2. Odejmowanie");
+            System.out.println("3. Mnożenie");
+            System.out.println("4. Dzielenie");
+
+            System.out.print("Podaj opcję: ");
+
+            down = in.nextLine();
+            switch(down)
+            {
+                case "0":
+                    System.out.println("Wyszedłeś z programu!");
+                ADC = false;
+            break;
+
+            case "1":
                     z = x + y;
                     System.out.println("Suma wynosi: " +z);
+                    ADC = false;
             break;
 
-            case 2:
+            case "2":
                     z = x - y;
                     System.out.println("Różnica wynosi: " +z);
+                    ADC = false;
             break;
 
-            case 3:
+            case "3":
                     z = x * y;
                     System.out.println("Iloczyn wynosi: " +z);
+                    ADC = false;
             break;
 
-            case 4:
+            case "4":
                     if (y == 0)
                         System.out.println("Nie dzielimy przez zero!");
                     else {
                         z = x / y;
                         System.out.println("Iloraz wynosi: " + z);
+                        ADC = false;
                     }
             break;
 
             default:
                 System.out.println("Nie ma takiej opcji!");
-        }
+                ADC = true;
+            }
+        }while (ADC);
     }
 }
