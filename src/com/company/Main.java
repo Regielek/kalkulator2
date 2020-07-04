@@ -31,21 +31,22 @@ public class Main
         return x;
     }
 
-    public static void main(String[] args) {
-        String down;
+    public static void main(String[] args)
+    {
+        String down, answer;
 
         double x, y, z;
 
         boolean ADC = true;
 
-        x = getValue("pierwszą");
-        y = getValue("drugą");
-
-
         Scanner in = new Scanner(System.in);
 
         do
         {
+        x = getValue("pierwszą");
+        y = getValue("drugą");
+            do
+            {
             System.out.println("0. Wyjście z programu");
             System.out.println("1. Dodawanie");
             System.out.println("2. Odejmowanie");
@@ -55,45 +56,55 @@ public class Main
             System.out.print("Podaj opcję: ");
 
             down = in.nextLine();
-            switch(down)
-            {
+            switch (down)
+                {
                 case "0":
-                    System.out.println("Wyszedłeś z programu!");
+                System.out.println("Wyszedłeś z programu!");
                 ADC = false;
-            break;
+                break;
 
-            case "1":
+                case "1":
                     z = x + y;
                     System.out.println("Suma wynosi: " +z);
                     ADC = false;
-            break;
+                break;
 
-            case "2":
+                case "2":
                     z = x - y;
                     System.out.println("Różnica wynosi: " +z);
                     ADC = false;
-            break;
+                break;
 
-            case "3":
+                case "3":
                     z = x * y;
                     System.out.println("Iloczyn wynosi: " +z);
                     ADC = false;
-            break;
+                break;
 
-            case "4":
+                case "4":
                     if (y == 0)
                         System.out.println("Nie dzielimy przez zero!");
                     else {
                         z = x / y;
                         System.out.println("Iloraz wynosi: " + z);
-                        ADC = false;
                     }
-            break;
+                    ADC = false;
+                break;
 
-            default:
-                System.out.println("Nie ma takiej opcji!");
-                ADC = true;
-            }
-        }while (ADC);
+                default:
+                    System.out.println("Nie ma takiej opcji!");
+                    ADC = true;
+                }
+            }while (ADC);
+
+        System.out.println("Czy chcesz dokonać obliczeń jeszcze raz?");
+        System.out.println("Tak");
+        System.out.println("Nie");
+        System.out.print("Wybór: ");
+
+        answer = in.nextLine();
+        answer.toLowerCase();
+
+        }while (answer.equals("tak"));
     }
 }
