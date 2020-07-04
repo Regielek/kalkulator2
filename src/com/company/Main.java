@@ -103,8 +103,7 @@ public class Main
         System.out.print("Wybór: ");
 
         answer = in.nextLine();
-        answer.toLowerCase();
 
-        }while (answer.equals("tak"));
+        }while (answer.equals("Tak"));
     }
 }
